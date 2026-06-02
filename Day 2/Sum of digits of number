@@ -8,7 +8,7 @@ int main() {
     long long originalNumber;
     long long sum = 0;
 
-    // Get input from the user
+    //Get input from the user
     cout << "Enter an integer: ";
     cin >> number;
 
