@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+bool isPrime(int n) {
+    // Numbers less than or equal to 1 are not prime
+    if (n <= 1) {
+        return false;
+    }
+
+    // Check divisibility from 2 up to the square root of n
+    // Using i * i <= n avoids the overhead of calling the sqrt() function
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false; // Found a factor, so it is not prime
+        }
+    }
+
+    return true; // No factors found, it is prime
+}
+
+int main() {
+    int num;
+
+    cout << "Enter a positive integer: ";
+    cin >> num;
+
+    if (isPrime(num)) {
+        cout << num << " is a prime number." << endl;
+    } else {
+        cout << num << " is not a prime number." << endl;
+    }
+
+    return 0;
+}

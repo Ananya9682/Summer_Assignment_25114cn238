@@ -1,0 +1,15 @@
+#include <iostream>
+#include <numeric> // Required for std::lcm
+
+int main() {
+    int num1, num2;
+    std::cout << "Enter two numbers: ";
+    std::cin >> num1 >> num2;
+
+    // Use the built-in C++17 lcm function
+    int result = std::lcm(num1, num2);
+
+    std::cout << "LCM of " << num1 << " and " << num2 << " is: " << result << std::endl;
+
+    return 0;
+}
