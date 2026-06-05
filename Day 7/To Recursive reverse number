@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+// Helper recursive function
+int reverseHelper(int n, int rev) {
+    if (n == 0)
+        return rev;
+
+    return reverseHelper(n / 10, rev * 10 + (n % 10));
+}
+
+int reverseNumber(int n) {
+    return reverseHelper(n, 0);
+}
+
+int main() {
+    int n;
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    cout << "Reversed number = " << reverseNumber(n) << endl;
+
+    return 0;
+}
