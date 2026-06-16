@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[100], uniqueArr[100], n;
+    int uniqueCount = 0;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    cout << "Enter array elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Remove duplicates
+    for (int i = 0; i < n; i++) {
+        bool isDuplicate = false;
+
+        for (int j = 0; j < uniqueCount; j++) {
+            if (arr[i] == uniqueArr[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+
+        if (!isDuplicate) {
+            uniqueArr[uniqueCount] = arr[i];
+            uniqueCount++;
+        }
+    }
+
+    cout << "Array after removing duplicates: ";
+    for (int i = 0; i < uniqueCount; i++) {
+        cout << uniqueArr[i] << " ";
+    }
+
+    return 0;
+}

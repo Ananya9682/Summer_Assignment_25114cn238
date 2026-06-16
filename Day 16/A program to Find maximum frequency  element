@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[100], n;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    cout << "Enter array elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int maxCount = 0;
+    int maxElement = arr[0];
+
+    for (int i = 0; i < n; i++) {
+        int count = 1;
+
+        // Skip elements already counted
+        bool counted = false;
+        for (int k = 0; k < i; k++) {
+            if (arr[i] == arr[k]) {
+                counted = true;
+                break;
+            }
+        }
+
+        if (counted)
+            continue;
+
+        // Count frequency of current element
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
+                count++;
+            }
+        }
+
+        // Update maximum frequency
+        if (count > maxCount) {
+            maxCount = count;
+            maxElement = arr[i];
+        }
+    }
+
+    cout << "Element with maximum frequency = " << maxElement << endl;
+    cout << "Frequency = " << maxCount << endl;
+
+    return 0;
+}
