@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr1[100], arr2[100], n1, n2;
+
+    cout << "Enter the number of elements in first array: ";
+    cin >> n1;
+
+    cout << "Enter elements of first array: ";
+    for (int i = 0; i < n1; i++) {
+        cin >> arr1[i];
+    }
+
+    cout << "Enter the number of elements in second array: ";
+    cin >> n2;
+
+    cout << "Enter elements of second array: ";
+    for (int i = 0; i < n2; i++) {
+        cin >> arr2[i];
+    }
+
+    cout << "Common elements: ";
+
+    bool foundAny = false;
+
+    for (int i = 0; i < n1; i++) {
+        bool alreadyPrinted = false;
+
+        // Check if the element was already printed
+        for (int k = 0; k < i; k++) {
+            if (arr1[i] == arr1[k]) {
+                alreadyPrinted = true;
+                break;
+            }
+        }
+
+        if (alreadyPrinted)
+            continue;
+
+        // Check if the element exists in the second array
+        for (int j = 0; j < n2; j++) {
+            if (arr1[i] == arr2[j]) {
+                cout << arr1[i] << " ";
+                foundAny = true;
+                break;
+            }
+        }
+    }
+
+    if (!foundAny) {
+        cout << "No common elements";
+    }
+
+    return 0;
+}
