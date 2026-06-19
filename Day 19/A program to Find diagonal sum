@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int matrix[10][10], n;
+    int primarySum = 0, secondarySum = 0;
+
+    cout << "Enter the order of the square matrix: ";
+    cin >> n;
+
+    cout << "Enter matrix elements:\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    // Find diagonal sums
+    for (int i = 0; i < n; i++) {
+        primarySum += matrix[i][i];
+        secondarySum += matrix[i][n - i - 1];
+    }
+
+    cout << "Primary diagonal sum = " << primarySum << endl;
+    cout << "Secondary diagonal sum = " << secondarySum << endl;
+
+    return 0;
+}
