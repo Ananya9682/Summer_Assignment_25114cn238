@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[100];
+    int vowels = 0, consonants = 0;
+
+    cout << "Enter a string: ";
+    cin.getline(str, 100);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        char ch = str[i];
+
+        // Check if the character is an alphabet
+        if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+
+            // Convert uppercase letters to lowercase
+            if (ch >= 'A' && ch <= 'Z') {
+                ch = ch + 32;
+            }
+
+            // Check for vowels
+            if (ch == 'a' || ch == 'e' || ch == 'i' ||
+                ch == 'o' || ch == 'u') {
+                vowels++;
+            } else {
+                consonants++;
+            }
+        }
+    }
+
+    cout << "Number of vowels = " << vowels << endl;
+    cout << "Number of consonants = " << consonants << endl;
+
+    return 0;
+}
