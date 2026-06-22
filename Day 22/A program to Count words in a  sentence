@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[200];
+    int words = 0;
+    bool inWord = false;
+
+    cout << "Enter a sentence: ";
+    cin.getline(str, 200);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        // Check if the current character is not a space
+        if (str[i] != ' ' && !inWord) {
+            words++;
+            inWord = true;
+        }
+        // If a space is found, we are no longer inside a word
+        else if (str[i] == ' ') {
+            inWord = false;
+        }
+    }
+
+    cout << "Number of words = " << words;
+
+    return 0;
+}
