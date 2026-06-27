@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+
+int main() {
+    Employee emp[100];
+    int n;
+
+    cout << "Enter number of employees: ";
+    cin >> n;
+
+    // Input employee details
+    for (int i = 0; i < n; i++) {
+        cout << "\nEmployee " << i + 1 << endl;
+
+        cout << "Enter Employee ID: ";
+        cin >> emp[i].id;
+
+        cin.ignore();
+
+        cout << "Enter Employee Name: ";
+        cin.getline(emp[i].name, 50);
+
+        cout << "Enter Salary: ";
+        cin >> emp[i].salary;
+    }
+
+    // Display employee records
+    cout << "\n===== EMPLOYEE RECORDS =====\n";
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nEmployee ID: " << emp[i].id;
+        cout << "\nEmployee Name: " << emp[i].name;
+        cout << "\nSalary: " << emp[i].salary << endl;
+    }
+
+    return 0;
+}

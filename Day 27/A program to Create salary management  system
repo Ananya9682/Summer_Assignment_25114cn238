@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+struct Employee {
+    int empId;
+    char name[50];
+    float basicSalary;
+    float hra;
+    float da;
+    float grossSalary;
+};
+
+int main() {
+    Employee emp[100];
+    int n;
+
+    cout << "Enter number of employees: ";
+    cin >> n;
+
+    // Input employee details
+    for (int i = 0; i < n; i++) {
+        cout << "\nEmployee " << i + 1 << endl;
+
+        cout << "Enter Employee ID: ";
+        cin >> emp[i].empId;
+
+        cin.ignore();
+
+        cout << "Enter Employee Name: ";
+        cin.getline(emp[i].name, 50);
+
+        cout << "Enter Basic Salary: ";
+        cin >> emp[i].basicSalary;
+
+        // Calculate HRA, DA and Gross Salary
+        emp[i].hra = 0.20 * emp[i].basicSalary; // 20% HRA
+        emp[i].da = 0.10 * emp[i].basicSalary;  // 10% DA
+
+        emp[i].grossSalary =
+            emp[i].basicSalary + emp[i].hra + emp[i].da;
+    }
+
+    // Display salary details
+    cout << "\n===== SALARY REPORT =====\n";
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nEmployee ID: " << emp[i].empId;
+        cout << "\nName: " << emp[i].name;
+        cout << "\nBasic Salary: " << emp[i].basicSalary;
+        cout << "\nHRA: " << emp[i].hra;
+        cout << "\nDA: " << emp[i].da;
+        cout << "\nGross Salary: " << emp[i].grossSalary << endl;
+    }
+
+    return 0;
+}
