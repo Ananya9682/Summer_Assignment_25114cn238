@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+struct Product {
+    int productId;
+    string productName;
+    int quantity;
+    float price;
+};
+
+int main() {
+    Product items[100];
+    int n;
+
+    cout << "Enter number of products: ";
+    cin >> n;
+    cin.ignore();
+
+    // Input product details
+    for (int i = 0; i < n; i++) {
+        cout << "\nProduct " << i + 1 << endl;
+
+        cout << "Enter Product ID: ";
+        cin >> items[i].productId;
+        cin.ignore();
+
+        cout << "Enter Product Name: ";
+        getline(cin, items[i].productName);
+
+        cout << "Enter Quantity: ";
+        cin >> items[i].quantity;
+
+        cout << "Enter Price: ";
+        cin >> items[i].price;
+        cin.ignore();
+    }
+
+    // Display inventory
+    cout << "\n===== INVENTORY DETAILS =====\n";
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nProduct ID   : " << items[i].productId;
+        cout << "\nProduct Name : " << items[i].productName;
+        cout << "\nQuantity     : " << items[i].quantity;
+        cout << "\nPrice        : Rs. " << items[i].price;
+        cout << "\nStock Value  : Rs. "
+             << items[i].quantity * items[i].price << endl;
+    }
+
+    return 0;
+}
